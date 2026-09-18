@@ -5484,3 +5484,6 @@ _G.__rimuruui = {
 
 return RimuruUI
 end)()
+
+-- Module contract: loadstring(... )() must return the UI API table.
+return UILib
