@@ -1732,15 +1732,9 @@ local function paintWindowButton(kind, x, y, hover)
     local fill = hover and Theme.CardHover or Theme.Panel
     paintRect(x, y, 22, 22, fill, 0.90, 42, 6)
     paintRect(x, y, 22, 22, Theme.Border, 0.70, 43, 6, false, 1)
-    if kind == "minimize" then
-        bubbleLine(x + 7, y + 11, x + 15, y + 11,
-            hover and Theme.HoverText or Theme.Muted, 1, 44, 1)
-    else
-        bubbleLine(x + 7, y + 7, x + 15, y + 15,
-            hover and Theme.HoverText or Theme.Muted, 1, 44, 0.9)
-        bubbleLine(x + 15, y + 7, x + 7, y + 15,
-            hover and Theme.HoverText or Theme.Muted, 1, 44, 0.9)
-    end
+    local icon = kind == "minimize" and "minus" or "x"
+    paintIcon(icon, x + 11, y + 11,
+        hover and Theme.HoverText or Theme.Muted, 44, 0.95)
 end
 
 local function invoke(callback, ...)
